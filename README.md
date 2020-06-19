@@ -9,10 +9,10 @@ The dataset for this project was taken from [kaggle](https://www.kaggle.com/moha
 
 * GRE Score (out of 340)
 * TOEFL SCORE (out of 120)
-* University Rating ( out of 5 )
+* University Rating (out of 5 )
 * Statement of Purpose and Letter of Recommendation Strength ( out of 5 )
-* Undergraduate GPA ( out of 10 )
-* Research Experience ( either 0 or 1 )
+* Undergraduate GPA (out of 10 )
+* Research Experience (either 0 or 1 )
 
 and predicts the admission chances (ranging from 0 to 1).
 
