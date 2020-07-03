@@ -28,29 +28,38 @@ def calc_chances(gre_score, toefl_score, university_rating, sop, lor, cgpa, rese
     return chances
 
 
-
 def main():
-    st.title("GRADUATE ADMISSION CHANCES PREDICTOR")
-    html_temp = """
-    <div style="background-color:tomato;padding:10px">
-    <h2 style="color:white;text-align:center;">A Demonstration Of Streamlit Web App </h2>
+    #st.title("Graduate Admissions Chances Predictor")
+    html_temp ="""
+    <html>
+    <head></head>
+    <body style="background-color:#A9A9A9">
+    <div style="background-color:#6441a5;padding:8px">
+    <h1 style="color:white;text-align:center;">Graduate Admissions Chances Predictor</h1>
+    
+    <div style="background-color:#4462b5;padding:4x">
+    <h3 style="color:white;text-align:center;">Deployed using Streamlit!</h3>
     </div>
+    </body>
+    </html>
     """
+
     st.markdown(html_temp,unsafe_allow_html=True)
-    gre_score = st.text_input("GRE SCORE","Type Here")
-    toefl_score = st.text_input("TOEFL SCORE","Type Here")
-    university_rating = st.text_input("UNIVERSITY RATING","Type Here")
-    sop = st.text_input("SOP","Type Here")
-    lor = st.text_input("LOR","Type Here")
-    cgpa = st.text_input("CGPA","Type Here")
-    research = st.text_input("RESEARCH","Type Here")
-    result=""
-    if st.button("Predict"):
+    gre_score = st.text_input("GRE SCORE (0-340)")
+    toefl_score = st.text_input("TOEFL SCORE (0-120)")
+    university_rating = st.slider("University Rating (0-5)",0,5)
+    sop = st.number_input("Statement of Purpose (0-5)",0.0,5.0,step=0.1)
+    lor = st.number_input("Letter of Recommendation strength (0-5)",0.0,5.0,step=0.1)
+    cgpa = st.number_input("CGPA (0-10)",0.0,10.0)
+    research = st.slider("RESEARCH (1-Yes, 0-No)",0,1)
+    result=0
+    if st.button("PREDICT"):
         result = calc_chances(gre_score, toefl_score, university_rating, sop, lor, cgpa, research)
-    st.success('The output is {}'.format(result))
+        st.success(f"Your admission chance is : {round(result*100,2)}%.")
+   
     if st.button("About"):
-        st.text("Lets LEarn")
-        st.text("Built with Streamlit")
+        st.text("tusharkhandelwal.work@gmail.com")
+        st.text("Github:SinOfPride07")
 
 if __name__=='__main__':
     main()
